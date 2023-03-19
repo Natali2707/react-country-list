@@ -3,16 +3,15 @@ import { CountryItem } from "./CountryItem";
 
 
 export interface CountryListProps {
-    countriesTransform: TransformCountries[],
+    countriesTrans: TransformCountries[],
 }
 
-export const CountryList = ({ countriesTransform }: CountryListProps) => {
-    // console.log(props);
+export const CountryList = ({ countriesTrans }: CountryListProps) => {
     return (
         <ul className="list-group ">
             {
-                countriesTransform.map((country) => {
-                    return <CountryItem {...country} />
+                countriesTrans.map((countryObj) => {
+                    return <CountryItem countryObj={countryObj} />
                 })
             }
         </ul>
