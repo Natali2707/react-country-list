@@ -1,18 +1,17 @@
-import { TransformCountries } from "../mappers/transform"
+import { TransformCountry } from "../types/types"
 import { Badge } from "./Badge"
 
 
 interface CountryItemProps {
-    countryObj: TransformCountries,
+    country: TransformCountry,
 }
 
-
-export const CountryItem = ({ countryObj: { region, area, population, capital, name, flags } }: CountryItemProps) => {
+export const CountryItem = ({ country: { region, area, population, capital, name, flags } }: CountryItemProps) => {
     return (
-        <li className="list-group-item d-flex flex-column  ">
+        <li key={region} className="list-group-item d-flex flex-column  ">
             <div className="d-flex align-items-center">
                 <div className="text-center">
-                    <img src={flags} className=" w-50 rounded float-start img-thumbnail" alt="flag" />
+                    <img src={flags} className=" w-50 rounded float-start img-thumbnail" alt={flags} />
                 </div>
                 <h5 className="m-3">{region}</h5>
                 <h5 className="m-3">{capital}</h5>

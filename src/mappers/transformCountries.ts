@@ -1,17 +1,8 @@
-import { Country } from "../components/types";
-
-export interface TransformCountries {
-  region: string;
-  area: number;
-  population: number;
-  capital: string;
-  name: string;
-  flags: string;
-}
+import { Country, TransformCountry } from "../types/types";
 
 export const transformCountries = (
   countries: Country[]
-): TransformCountries[] => {
+): TransformCountry[] => {
   return countries.map((country) => ({
     name: country.name.common,
     capital: country.capital[0],

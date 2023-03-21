@@ -1,17 +1,17 @@
-import { TransformCountries } from "../mappers/transform";
+import { TransformCountry } from "../types/types";
 import { CountryItem } from "./CountryItem";
 
 
 export interface CountryListProps {
-    countriesTrans: TransformCountries[],
+    countriesTransform: TransformCountry[],
 }
 
-export const CountryList = ({ countriesTrans }: CountryListProps) => {
+export const CountryList = ({ countriesTransform }: CountryListProps) => {
     return (
         <ul className="list-group ">
             {
-                countriesTrans.map((countryObj) => {
-                    return <CountryItem countryObj={countryObj} />
+                countriesTransform.map((country) => {
+                    return <CountryItem key={country.area} country={country} />
                 })
             }
         </ul>

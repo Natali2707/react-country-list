@@ -1,5 +1,3 @@
-import { type } from "os";
-
 interface Country {
   flags: CountryFlag;
   name: CountryName;
@@ -15,13 +13,13 @@ interface CountryName {
   nativeName: CountryNativeName;
 }
 
-interface CountryAllNative {
+interface CountryNative {
   official: string;
   common: string;
 }
 
 interface CountryNativeName {
-  [key: string]: CountryAllNative | undefined;
+  [key: string]: CountryNative | undefined;
 }
 
 interface CountryFlag {
@@ -29,10 +27,19 @@ interface CountryFlag {
   svg: string;
 }
 
+interface TransformCountry {
+  region: string;
+  area: number;
+  population: number;
+  capital: string;
+  name: string;
+  flags: string;
+}
 export type {
   Country,
   CountryFlag,
   CountryName,
   CountryNativeName,
-  CountryAllNative,
+  CountryNative,
+  TransformCountry,
 };
